@@ -1,0 +1,19 @@
+.badge-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.badge-list li {
+    position: relative;
+    padding-left: 28px;
+    margin: 8px 0;
+}
+
+.badge-list li svg {
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    width: 18px;
+    height: 18px;
+    color: #22c55e;
+}

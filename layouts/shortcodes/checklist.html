@@ -1,0 +1,6 @@
+<ul class="badge-list">
+    {{ range (split (.Inner | string) "\n") }} {{ $item := trim . " \n\r\t" }}
+    {{ if $item }}
+    <li><i data-lucide="badge-check"></i> {{ $item | markdownify }}</li>
+    {{ end }} {{ end }}
+</ul>
