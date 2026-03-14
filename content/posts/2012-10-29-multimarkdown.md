@@ -310,9 +310,6 @@ to [configure](http://www.mediawiki.org/wiki/Extension:AlternateSyntaxParser) di
 ## MultiMarkdown 3.6 installation
 
 * Provides: multimarkdown (C) and shell wrappers: mmd, mmd2tex, mmd2opml, mmd2odf
-* [OSX](https://github.com/fletcher/peg-multimarkdown/downloads) binaries
-* [Windows](https://github.com/fletcher/peg-multimarkdown/downloads) binaries
-* [OpenSUSE](http://software.opensuse.org/package/multimarkdown) package
 * Compile from [source](https://github.com/fletcher/peg-multimarkdown)  
 
 ```zsh
@@ -343,6 +340,6 @@ to [configure](http://www.mediawiki.org/wiki/Extension:AlternateSyntaxParser) di
 * [Byword](http://bywordapp.com/) - IOS, OSX beautiful MultiMarkdown editor
 * [TextMate](http://macromates.com) - great OSX editor now [Open Sourced](https://github.com/textmate/textmate) 
 * [Pandoc](http://johnmacfarlane.net/pandoc) - great to convert between Markup languages from Markdown, reStructuredText, textile, html, DocBook, or LaTeX to html, Word, OpenOffice, Mediawiki, epub, DocBook, pdf, RST, ....
-* Other Markdown syntaxes: [GitHub flavored (GFM)](http://github.github.com/github-flavored-markdown), [Markdown Extra](http://michelf.ca/projects/php-markdown/extra/), [Maruku](http://maruku.rubyforge.org/maruku.html), [kramdown](http://kramdown.rubyforge.org/), [Pandoc Markdown](http://johnmacfarlane.net/pandoc/README.html#pandocs-markdown)
+* Other Markdown syntaxes: [GitHub flavored (GFM)](http://github.github.com/github-flavored-markdown), [Markdown Extra](http://michelf.ca/projects/php-markdown/extra/), [Pandoc Markdown](https://daringfireball.net/projects/markdown/)
 * [Wikipedia list](http://en.wikipedia.org/wiki/List_of_Markdown_implementations) of implementation
-* [Ruby PEG MultiMarkdown](https://github.com/djungelvral/rpeg-multimarkdown) a MultiMarkdown module for ruby forked from rpeg-markdown                                                        	
+* [Ruby PEG MultiMarkdown](https://github.com/djungelvral/rpeg-multimarkdown) a MultiMarkdown module for ruby forked from rpeg-markdown
