@@ -98,9 +98,11 @@ params:
   homeInfoParams:
     Title: "about <font color='#1F51FF'>yet</font>"
     Content: >
-      I’m Sébastien Braun. I currently lead a team of solutions engineers at GitHub, a San Francisco–based company that powers the modern software lifecycle—from planning and coding to testing, deployment, operations, and security. With AI woven into every stage, GitHub helps teams build, ship, and maintain software faster and more safely so organizations can focus on their core business. Our mission is to help customers win in today’s fast-moving economy, where speed, quality, and intelligent automation across the entire software lifecycle are non-negotiable.
+      I’m Sébastien Braun. I currently lead a team of solutions engineers at [GitHub](https://www.github.com), a San Francisco–based company that powers the modern software lifecycle, from planning and coding to testing, deployment, operations, and security. With AI woven into every stage, GitHub helps teams build, ship, and maintain software faster and more safely so organizations can focus on their core business. Our mission is to help customers win in today’s fast-moving economy, where speed, quality, and intelligent automation across the entire software lifecycle are non-negotiable.
+
 
       This site is my personal corner of the web—a place where I collect things, mostly around Open Source and innovation, as a reminder of where we’ve been and where we’re going. It’s not just about “things,” though: you’ll find how-tos, experiments, and excuses to play with the endless array of tools out there. Because if we can’t find a good reason to tinker, we’ll just make one.
+
 
       Apart from *[PaperMod](https://github.com/adityatelange/hugo-PaperMod)* Hugo theme inspired by *[Paper](https://github.com/nanxiaobei/hugo-paper)* yet is also powered by
 
