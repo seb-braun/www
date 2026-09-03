@@ -1,49 +1,40 @@
 ---
 title: "Zed as a Python IDE"
-description: A powerful Python IDE out of the box
+description: Out of the box powerful Python IDE
 date: 2026-03-13T13:38:01Z
 tags: ["zed", "python"]
 ---
 
-A while back, I [shared](/posts/2025-02-12-zed/) how to use this sleek new editor as a Go IDE. Now I'd like to revisit the topic, this time for [Python](https://www.python.org/).
+A while back, I [shared](/posts/2025-02-12-zed/) how to use this sleek new editor as a Go IDE. Now I'd like to revisit this topic, this time for [Python](https://www.python.org/).
 
-If you're curious about the other languages [Zed](https://zed.dev/) supports, its documentation includes an [extensive list](https://zed.dev/docs/configuring-languages).
+If you're curious about other languages [Zed](https://zed.dev/) supports, their docs feature an [extensive list](https://zed.dev/docs/configuring-languages).
 
-Today, it's all about Python and how Zed can replace [VS Code](https://code.visualstudio.com/), [PyCharm](https://www.jetbrains.com/pycharm/), or another Python IDE.
+Today it's all about Python—and how Zed can replace [VS Code](https://code.visualstudio.com/), [PyCharm](https://www.jetbrains.com/fr-fr/pycharm/), or any other Python IDE.
 
-But why choose Zed as your main editor?
+But why choose Zed as your main editor? Why Change?
 
-- It's **lightning fast**, thanks to Rust and a GPU-accelerated UI.
-- It's **lightweight** compared with traditional IDEs.
-- **Collaboration** is built in.
+- It's **Lightning fast**—Rust + GPU UI.  
+- It's **Lightweight** vs heavy IDEs.  
+- **Collaboration** is built-in.
 
-Scene set. Let's dive in!
-
-## Zed
-
-Installing Zed is as simple as running:
-
+Scene set—let's dive in!
+# Zed
+Installing Zed is as simple as
 ```shell
 curl -f https://zed.dev/install.sh | sh
 ```
-
-I prefer installing the official Arch Linux [package](https://archlinux.org/packages/extra/x86_64/zed/):
-
+In my case, I prefer sticking to the Arch Linux [package](https://archlinux.org/packages/extra/x86_64/zed/) repositories.
 ```shell
 sudo pacman -S zed
 ```
+# Python
+Let's assume you already have Python installed. I'm a huge fan of all Arch Linux derivatives—recently switching from [Manjaro](https://manjaro.org/) to [CachyOS](https://cachyos.org/) (topic for another article).
 
-## Python
+On these systems, if Python's missing, just run:
 
-Let's assume you already have Python installed. I'm a huge fan of Arch Linux derivatives and recently switched from [Manjaro](https://manjaro.org/) to [CachyOS](https://cachyos.org/), but that's a topic for another article.
+`sudo pacman -S python`
 
-On these systems, if Python is missing, install it with:
-
-```shell
-sudo pacman -S python
-```
-
-Alternatively, [uv](https://docs.astral.sh/uv/) makes installing Python and creating virtual environments simple:
+There's even a newer, recommended way to install Python that makes virtual environments dead simple.
 
 ```shell
 sudo pacman -S uv
@@ -51,62 +42,43 @@ uv python install 3.14
 uv venv
 ```
 
-Check the active Python version with:
+Quick check
 
 ```shell
 python --version
 ```
-
-## IDE features
-
-When you open a Python project, Zed provides **most IDE features out of the box**:
+# IDE
+By default, Zed provides **most Python features out-of-the-box** when opening a project.
 
 - Syntax highlighting
 - Language Server support (LSP) with [basedpyright](https://github.com/DetachHead/basedpyright)
 - Error diagnostics
 - Code navigation
-- Outline view and symbol index
-- Import autocompletion
+- Outline view / symbol index
+- Import auto-completion
 - Snippets
-- Code formatting with [Black](https://black.readthedocs.io/en/stable/)
-- Code linting with [Ruff](https://docs.astral.sh/ruff/)
-
-## Requirements
-
-Install the key dependencies to unlock Zed's full Python potential:
-
+- Code Formatting with [Black](https://black.readthedocs.io/en/stable/)
+- Code Linting with [Ruff](https://docs.astral.sh/ruff/)
+# Requirements
+In this section, we'll install key dependencies to unlock Zed's full Python potential.
 ```shell
 sudo pacman -S ruff python-black
 ```
-
-Alternatively, install them with `uv`:
-
-```shell
-uv tool install ruff
-uv tool install black
+Again an alternative would be
 ```
-
-[basedpyright](https://github.com/DetachHead/basedpyright) is a faster fork of [Pyright](https://github.com/microsoft/pyright) and a full-featured static type checker that complements Ruff. There is no package in the official Arch repositories, so install it from the AUR or with `uv`. We'll use `uv`:
-
+uv tool install ruff black
+```
+For [basedpyright](https://github.com/DetachHead/basedpyright) (faster fork of [pyright](https://github.com/microsoft/pyright), full-featured static type checker that complements Ruff), no official package → AUR or uv. We'll use:
 ```shell
 uv tool install basedpyright
 uv tool list
-```
-
-The output should include:
-
-```text
 basedpyright v1.38.2
 - basedpyright
 - basedpyright-langserver
 ```
-
-Now let's tie everything together with a few configuration tweaks.
-
-## Test project
-
+Now let's tie it all together with a few config tweaks.
+# Test project
 First, let's create a test project.
-
 ```shell
 mkdir dp
 cd dp
@@ -114,51 +86,39 @@ uv init
 uv venv
 source .venv/bin/activate
 ```
-
-Now open the project in Zed:
-
-```shell
+Open your test project in Zed now.
+```
 zed .
 ```
-
-## Testing the IDE features
-
+# Testing
 {{< checklist >}}
-Open `main.py` to see **syntax highlighting** in action.
-Add a few lines of Python and watch the **basedpyright language server** start automatically.
-To see **error diagnostics**, remove the colon after `main()` in its function definition. Zed immediately highlights the error in red.
-`Ctrl+Click` the final `main()` call to jump to its definition. You can also navigate through symbols with `Ctrl+Shift+O`.
-Hover over any symbol to see its **type information**, docstring, and inferred type.
-Select a symbol, right-click it, and choose **Find References** to list every place where it is used.
-Use `Ctrl+T` for **workspace-wide symbol search**.
-Add `import math`, then type `math.` on the next line. **Autocompletion** immediately lists the available functions; press `Tab` to accept a suggestion.
+Open _main.py_ and you'll immediately see **syntax highlighting** in action.
+Add a few lines of Python code to your project and watch your **Language Server** basedpyright kick in out-of-the-box
+to illustrate **error diagnostic**, remove the semi column after _main_ and observe red appearing
+`Ctrl+Click` the last _main()_ call to jump to its definition—**code navigation** rocks! You can also navigate through symbols using Ctrl+Shift+O.
+Hover over any symbol → Zed **shows type information**, docstrings, and inferred types.
+_Select a symbol → Right-click → Find References_, Zed **lists every location** in the project where it is used.
+use `Ctrl+T` for **Workspace-wide Symbol Search**
+Now add _import math_, then on next line type _math._ —watch **autocomplete** instantly show available functions! Use `Tab` to accept a suggestion.
 {{< /checklist >}}
 
-## Code formatting
-
-Add the following code to `main.py`:
-
+# Code Formatting
+Now add the following function to your _main.py_
 ```python
-def greet(name):return f"Hello {name}"
-x= 5
+def greet(name):return f"Hello {name}"  
+x= 5  
 y =10
 ```
-
 Hit `Ctrl+Shift+I` to auto-format your code.
+**Format on Save** is enabled by default—formatting happens automatically on save.
 
-**Format on Save** is enabled by default, so formatting also happens automatically whenever you save the file.
-
-You'll notice the following changes:
-
+You'll notice these changes:
 - Proper indentation
 - Spaces around operators
 - Function body on new line
 - Consistent style throughout
-
-## Code linting
-
-Create a new `bad.py` file with the following content for a more detailed example:
-
+# Code Linting
+Create a new _bad.py_ file in your project with this content for a deeper example:
 ```python
 import os # Unused import (F401)  
 import sys # Unused import (F401)  
@@ -183,25 +143,14 @@ z = 10 # Extra whitespace (E222)
 ```
 Scan for all the warnings—Ruff's done its job.
 Save to see auto-formatting in action.
+
 # Snippets
 Python snippets turbocharge your Zed workflow—super easy setup.
 
 **Ctrl+Shift+P** → configure snippets → **Python** → JSON file opens.
 
 A _Try / Except_ snippet example
-```
-
-Ruff highlights each issue inline. Save the file to see auto-formatting in action as well.
-
-## Snippets
-
-Python snippets can speed up your Zed workflow and are easy to configure.
-
-Press `Ctrl+Shift+P`, select **Configure Snippets**, and then choose **Python** to open the JSON configuration file.
-
-Here is a `try`/`except` snippet:
-
-```json
+```JSON
 {
   "Python try except": {
     "prefix": "t",
@@ -216,18 +165,16 @@ Here is a `try`/`except` snippet:
   }
 }
 ```
+- **prefix**: Typed text + `TAB` → snippet trigger
+- **body**: Code inserted
+- **$0**: Final cursor position after all TAB navigations.
 
-- **prefix**: the text you type before pressing `Tab` to trigger the snippet
-- **body**: the code Zed inserts
-- **$0**: the final cursor position after you move through the placeholders with `Tab`
+Another example
 
-Here is another example that adds a Python main guard:
-
-```json
-{
-  "Python main guard": {
-    "prefix": "m",
-    "body": [
+```JSON
+"Python main guard": {
+   "prefix": "m",
+   "body": [
       "#!/usr/bin/env python3",  
       "",
       "def main():",
@@ -237,21 +184,18 @@ Here is another example that adds a Python main guard:
       "    main()"
     ],
     "description": "Python main entry point"
-  }
-}
 ```
 
-To use both snippets, place them inside the same top-level JSON object and separate them with a comma.
+Add the second snippet right after the first in the JSON block, comma-separated.
+# Ctrl+Shift+P: Instant Python Execution
 
-## Run Python with a keyboard shortcut
+Lastly we'll create a task and assign a hotkey to easily run Python code without leaving the editor.
 
-Lastly, we'll create a task and assign a keyboard shortcut so that you can run Python code without leaving the editor.
+**Ctrl+Shift+P** → open tasks → JSON file opens.
 
-Press `Ctrl+Shift+P` and select **Open Tasks** to open the JSON configuration file.
+As we're using `uv` this is what we need to insert in the task block
 
-Because we're using `uv`, add the following task:
-
-```json
+```JSON
 {
   "label": "Run Python file",
   "command": "uv",
@@ -260,27 +204,28 @@ Because we're using `uv`, add the following task:
 }
 ```
 
-Next, press `Ctrl+Shift+P` and select **Open Keymap File**. Add the following key binding:
+Now to assign this task to a hotkey
 
-```json
+**Ctrl+Shift+P** → open keymap file → JSON file opens.
+
+this is what you need to add
+
+```JSON
 {
   "context": "Workspace",
   "bindings": {
     "ctrl-shift-r": ["task::Spawn", { "task_name": "Run Python file" }]
-  }
+    }
 }
 ```
 
-Press `Ctrl+Shift+R` to run the current file. Its output appears in Zed's terminal panel.
+Now by pressing `Ctrl+Shift+R` Your code runs—output appears in Zed's console.
+# Wrap-up
+Compared to my [Neovim](/posts/2025-01-30-neovim/) article, we achieve tons with near-zero config.
 
-## Wrap-up
+Zed = Neovim power + VS Code UX, without Electron.
 
-Compared with my [Neovim](/posts/2025-01-30-neovim/) article, this setup gives us a lot with almost no configuration.
+That's Zed's magic—simple yet powerful. Enjoy!
 
-Zed combines Neovim's power with VS Code's user experience, without Electron.
-
-That's Zed's appeal: simple yet powerful. Enjoy!
-
-## Links
-
+# Links
 - [How to Set Up Python in Zed](https://zed.dev/docs/languages/python#how-to-set-up-python-in-zed)
