@@ -160,21 +160,35 @@ You'll notice the following changes:
 Create a new `bad.py` file with the following content for a more detailed example:
 
 ```python
-import os  # Unused import (F401)
-import sys  # Unused import (F401)
+import os # Unused import (F401)  
+import sys # Unused import (F401)  
+  
+x=5 # Missing space around operator (E225)  
+y =10 # Inconsistent spacing (E225)  
+  
+def greet(name):  
+print("Hello "+name) # String concatenation instead of f-string (WPS305), wrong indentation  
+  
+def add_numbers(a,b): # Missing whitespace after comma (E231)  
+return a+b # Wrong indentation (E111)  
+  
+def unused_function(): # Function never used (F841)  
+pass  
+  
+greet("Alice")  
+result = add_numbers(2,3)  
+print(result)  
+  
+z = 10 # Extra whitespace (E222)
+```
+Scan for all the warnings—Ruff's done its job.
+Save to see auto-formatting in action.
+# Snippets
+Python snippets turbocharge your Zed workflow—super easy setup.
 
+**Ctrl+Shift+P** → configure snippets → **Python** → JSON file opens.
 
-def greet(name):
-  print("Hello " + name)
-
-
-def calculate_total():
-  subtotal = 10  # Local variable assigned but never used (F841)
-  return 42
-
-
-greet("Alice")
-print(missing_value)  # Undefined name (F821)
+A _Try / Except_ snippet example
 ```
 
 Ruff highlights each issue inline. Save the file to see auto-formatting in action as well.
